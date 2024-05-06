@@ -1,5 +1,5 @@
 <template>
-  <div @click="toogleTodo">
+  <div @click="toogleTodo" class="todo" :class="{ completed: todo.completed }">
     <h2>Todo : {{ todo.title }}</h2>
     <p>Statut : {{ todo.completed ? 'Terminé' : 'Non terminé' }}</p>
   </div>
@@ -19,3 +19,16 @@ const toogleTodo = () => {
   emits('update:completed', !props.todo.completed)
 }
 </script>
+<style scoped>
+div.todo.completed {
+  color: blue;
+}
+
+.todo {
+  color: red;
+}
+
+.completed {
+  color: lightgreen;
+}
+</style>
